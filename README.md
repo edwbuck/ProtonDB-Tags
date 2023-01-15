@@ -80,6 +80,17 @@ unset NOCOV
 make test
 ```
 
+Run `make lint` to check the code for bugs and issues detected through static analysis.
+```
+make lint
+```
+
+Run `make build` to perform a pre-commit build. This executes unit tests, reports coverage, and reports static code analysis
+issues
+```
+make build
+```
+
 ### Contributing
 
 All feedback is welcome and appreciated! Please make an issue if you have any ideas or feedback, I would love to hear them!
