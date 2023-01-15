@@ -29,7 +29,7 @@ test:
 	PYTHONHASHSEED=0 pytest --tb=short $(COVOPTS) tests
 
 lint:
-	pylint -r n -f colorized vdf || true
+	pylint -r n -f colorized protondb_tags || true
 
 build: lint test
 	
