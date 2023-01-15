@@ -38,8 +38,8 @@ def is_native(app_id: str, skip_cache: bool, cache_manager: CacheManager) -> boo
         print(f"{app_id} | Timed out reading Steam store page.")
     except requests.ConnectionError:
         print(f"{app_id} | Could not connect to Steam.")
-    except requests.RequestException as e:
-        print(f"{app_id} | An unknown error occoured with the request to Steam. {type(e).__name__}")
+    except requests.RequestException as err:
+        print(f"{app_id} | An unknown error occoured with the request to Steam. {type(err).__name__}")
 
     # Wait 1.3 seconds before continuing, as Steam only allows 10 requests per 10 seconds,
     # otherwise you get rate limited for a few minutes.
@@ -123,8 +123,8 @@ def get_apps_list(sharedconfig: dict, fetch_games: bool) -> dict:
             print("Timed out reading apps list from Steam.")
         except requests.ConnectionError:
             print("Could not connect to Steam.")
-        except requests.RequestException as e:
-            print(f"An unknown error occoured with the request to Steam. {type(e).__name__}")
+        except requests.RequestException as err:
+            print(f"An unknown error occoured with the request to Steam. {type(err).__name__}")
 
         if not get_owned_games_result:
             return apps_list
@@ -194,9 +194,9 @@ def get_protondb_rating(app_id: str, skip_cache: bool, cache_manager: CacheManag
         print(f"{app_id} | Timed out reading the ranking from ProtonDB")
     except requests.ConnectionError:
         print(f"{app_id} | Could not connect to ProtonDB.")
-    except requests.RequestException as e:
+    except requests.RequestException as err:
         print(f"{app_id} | An unknown error occoured with the request to ProtonDB. " \
-            + f"{type(e).__name__}")
+            + f"{type(err).__name__}")
 
     if protondb_response:
         if protondb_response.status_code == 200:
