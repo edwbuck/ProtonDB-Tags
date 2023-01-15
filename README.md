@@ -18,7 +18,7 @@ pip install requests vdf
 
 Alternatively you can use the included requirements.txt file:
 ```bash
-pip install -r requirements.txt
+pip install -r dev_requirements.txt
 ```
 
 ### Running
@@ -43,6 +43,22 @@ The full command line options can be viewed with:
 ```bash
 python ProtonDB-Tags.py --help
 ```
+
+### Developing
+
+The command line tool `make` manages the development process.  A `Makefile` enforces consistency in commands, enabling
+easy coordination betweent the development team.
+
+To obtain the current set of development targets, run `make` or `make help`
+```
+make help
+```
+
+To install the python dependencies, run `make init`
+```
+make init
+```
+
 
 ### Contributing
 
