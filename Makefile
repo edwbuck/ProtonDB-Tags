@@ -6,6 +6,7 @@ Available commands:
 	make help       - display the development targets
 	make init       - install the python dependencies
 	make test       - test and report test coverage
+	make pylint     - static code analysis
 
 endef
 
@@ -25,3 +26,6 @@ endif
 test:
 	rm -f .coverage protondb_tags/*.pyc tests/*.pyc
 	PYTHONHASHSEED=0 pytest --tb=short $(COVOPTS) tests
+
+pylint:
+	pylint -r n -f colorized vdf || true
