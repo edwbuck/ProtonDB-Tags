@@ -1,4 +1,5 @@
 # Files may be stored in repo dir when testing, go ahead and ignore them.
+.coverage
 steamNativeCache.json
 protonDBCache.json
 config.json

@@ -27,7 +27,7 @@ pip install -r dev_requirements.txt
 
 This can be simply run with: 
 ```bash
-python ProtonDB-Tags.py
+python protondb_tags/protondb_tags.py
 ```
 
 It will also ask before saving the file, so if you want to just test it out theres no real danger of overwriting anything.
@@ -36,12 +36,12 @@ By default this will not check the Steam API for native titles. This can be enab
 
 You can also specify a custom path to your `sharedconfig.vdf` with: 
 ```bash
-python ProtonDB-Tags.py --sharedconfig /path/to/sharedconfig.vdf
+python protondb_tags/protondb_tags.py --sharedconfig /path/to/sharedconfig.vdf
 ```
 
 The full command line options can be viewed with: 
 ```bash
-python ProtonDB-Tags.py --help
+python protondb_tags/protondb_tags.py --help
 ```
 
 ### Developing
@@ -49,16 +49,36 @@ python ProtonDB-Tags.py --help
 The command line tool `make` manages the development process.  A `Makefile` enforces consistency in commands, enabling
 easy coordination betweent the development team.
 
-To obtain the current set of development targets, run `make` or `make help`
+
+Run `make` or `make help` to list the current development targets.
 ```
 make help
 ```
 
-To install the python dependencies, run `make init`
+Run `make init` to install the development dependencies
 ```
 make init
 ```
 
+Run `make test` to check the code against the unit tests and possibly generate a coverage report.
+```
+make test
+```
+
+Set the `NOCOV` environmental variable to disable the code coverage reports.  This allows unit testing when the code coverage
+report is not functional.
+```
+NOCOV=1
+export NOCOV
+make test
+```
+
+Unset the `NOCOV` environmental variable to enable the code coverage reports.  This allows a developer to see any lines of
+code that are not covered by any unit testing.
+```
+unset NOCOV
+make test
+```
 
 ### Contributing
 
@@ -83,9 +103,9 @@ If you get an error which looks like this:
 WARNING: This may clear your current tags on Steam!
 Would you like to save sharedconfig.vdf? (y/N)y
 Traceback (most recent call last):
-  File "ProtonDB-Tags.py", line 220, in 
+  File "protondb_tags/protondb_tags.py", line 220, in 
     main(arguments)
-  File "ProtonDB-Tags.py", line 207, in main
+  File "protondb_tags/protondb_tags.py", line 207, in main
     check = input("Would you like to save sharedconfig.vdf? (y/N)")
   File "", line 1, in 
     NameError: name 'y' is not defined
