@@ -39,7 +39,8 @@ def is_native(app_id: str, skip_cache: bool, cache_manager: CacheManager) -> boo
     except requests.ConnectionError:
         print(f"{app_id} | Could not connect to Steam.")
     except requests.RequestException as err:
-        print(f"{app_id} | An unknown error occoured with the request to Steam. {type(err).__name__}")
+        err_name = type(err).__name__
+        print(f"{app_id} | An unknown error occoured with the request to Steam. {err_name}")
 
     # Wait 1.3 seconds before continuing, as Steam only allows 10 requests per 10 seconds,
     # otherwise you get rate limited for a few minutes.
